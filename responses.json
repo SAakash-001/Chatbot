@@ -1,0 +1,388 @@
+{
+  "Payment Failure": {
+    "Card Payment Failure": [
+      "We’re sorry that your card payment didn’t go through. Please check your card details and try again.",
+      "Your card payment seems to have failed. Kindly verify your card information and try once more.",
+      "It appears that your card payment encountered an error. Please confirm your card operator and retry.",
+      "We noticed that your card payment wasn’t successful. Please ensure that your card details are correct or try a different card.",
+      "Your transaction did not complete. Please re-check your card details and consider contacting your bank if the issue persists.",
+      "It seems your card payment has failed. Could you please confirm if you’re using Visa or MasterCard?",
+      "Unfortunately, your card payment did not go through. Please verify the card information and try using Visa or MasterCard.",
+      "We’re experiencing issues with your card payment. Please double-check your card operator details and try again.",
+      "Your card payment did not process successfully. Ensure that you are using a supported card and that your details are correct.",
+      "Please note that only Visa and MasterCard are accepted. If your card isn’t one of these, please consider an alternative payment method."
+    ],
+    "Bank Transfer Failure": [
+      "Your bank transfer appears to have failed. Please check with your bank or try the transaction again later.",
+      "We couldn’t process your bank transfer. Kindly contact your bank for more details or attempt again.",
+      "It seems there was an issue with your bank transfer. Please verify your account details and try once more.",
+      "Your bank transfer did not complete successfully. We recommend contacting your bank for further assistance.",
+      "Unfortunately, your bank transfer failed. Please double-check your bank details and try again.",
+      "We regret that your bank transfer wasn’t successful. Please consult with your bank and retry the transaction.",
+      "It appears there was an error with your bank transfer. Kindly verify your banking information and attempt the transfer again.",
+      "Your transfer did not go through. Please confirm your bank details and try again later.",
+      "There seems to be an issue with the bank transfer. Please ensure all details are correct and contact your bank if needed.",
+      "We’re sorry, but your bank transfer has failed. Please check with your financial institution and attempt again."
+    ]
+  },
+  "Refund Issues": {
+    "Refund Status": [
+      "Your refund is currently being processed. Please allow 5-7 business days for completion.",
+      "We have initiated your refund, and it should reflect in your account within 5-7 business days.",
+      "Your refund request is underway. Please be patient as it may take up to a week to process.",
+      "Refund processing is in progress. Expect the funds to be credited in 5-7 business days.",
+      "Your refund is in process. We appreciate your patience while it is being completed.",
+      "The refund is currently being handled. You should see the credit within 5-7 business days.",
+      "Your refund is on its way! It may take 5-7 business days for the amount to reflect in your account.",
+      "We are processing your refund. Please allow up to 7 business days for it to appear in your account.",
+      "Your refund is underway. Kindly allow 5-7 business days for the process to complete.",
+      "The refund process is active. Expect to see the funds returned within 5-7 business days."
+    ],
+    "Refund Delay": [
+      "We apologize for the delay in processing your refund. Please provide your Payment ID so we can investigate further.",
+      "Sorry for the inconvenience. Your refund seems to be delayed. Kindly share your Payment ID for us to check.",
+      "We regret the delay in your refund process. Could you please provide your Payment ID for further analysis?",
+      "Refund delays can be frustrating. Please provide your Payment ID so we can expedite the review.",
+      "We’re sorry for the wait. Please send us your Payment ID to help us investigate the refund delay.",
+      "Apologies for the delay in processing your refund. Kindly share your Payment ID for a detailed investigation.",
+      "We understand your frustration with the delay. Please provide your Payment ID so we can resolve the issue.",
+      "Your refund seems to be taking longer than expected. Please share your Payment ID for further assistance.",
+      "Sorry for the delay. Kindly provide your Payment ID so we can check the status of your refund.",
+      "We apologize for the inconvenience. Please share your Payment ID to help us look into the refund delay."
+    ],
+    "Refund Request": [
+      "To initiate a refund request, please provide your Payment ID along with your order details.",
+      "We can process your refund request once we receive your Payment ID and order information.",
+      "Please share your Payment ID and order details so we can begin your refund request.",
+      "To start the refund process, kindly provide your Payment ID and any relevant order details.",
+      "For refund initiation, please provide your Payment ID and order information.",
+      "Kindly send us your Payment ID and order details to process your refund request.",
+      "We need your Payment ID along with your order details to initiate a refund. Please provide them.",
+      "To proceed with your refund request, please provide both your Payment ID and the order details.",
+      "Please furnish your Payment ID and order information so we can process your refund request.",
+      "For a refund request, please share your Payment ID and order details with us."
+    ]
+  },
+  "Invoice Requests": {
+    "Invoice not received": [
+      "It appears you haven't received your invoice yet. Please share your article DOI and title so we can check.",
+      "I understand you haven't received your invoice. Could you please provide the DOI and article name? We will look into it.",
+      "No worries! Please share the DOI and title of your paper, and we’ll verify the invoice status.",
+      "If you haven't received your invoice, please provide your DOI and article title, and we’ll sort this out for you.",
+      "We apologize for the inconvenience. Please send us your DOI and paper title so we can assist you further.",
+      "Sometimes invoices take time to be generated. If you can share your DOI and article name, we’ll confirm the status for you.",
+      "We understand your concern! Please provide your DOI and title, and we’ll get back to you with an update.",
+      "Your invoice may be pending generation. If you send us the DOI and title, we can check its status.",
+      "Could you share the DOI and paper name? We’ll verify your invoice and let you know the next steps.",
+      "If your invoice hasn’t arrived yet, we’re happy to help. Just provide the DOI and article title!"
+    ],
+    "Incorrect Invoice": [
+      "It looks like the invoice details are incorrect. Please provide your article DOI and title so we can verify.",
+      "I understand there's an issue with your invoice. Could you please share the DOI and article name?",
+      "No problem! Please provide the DOI and title of your paper, and we’ll check the invoice details.",
+      "Let’s fix this! Share the DOI and article title, and we’ll get this corrected.",
+      "Your invoice might need an update. Please send us your DOI and title, and we’ll handle it.",
+      "We’re sorry for the mistake. If you provide your DOI and title, we’ll review and update your invoice.",
+      "We can definitely correct this! Please share your DOI and paper title.",
+      "If your invoice needs adjustment, we’d be happy to help. Just send us your DOI and title.",
+      "Please provide your article’s DOI and title so we can review the incorrect invoice and resolve it.",
+      "We’ll make sure this gets sorted out. Could you share the DOI and title?"
+    ]
+  },
+  "Other Payment Queries": {
+    "General Payment Query": [
+      "Could you please provide more details about your payment query so we can assist you better?",
+      "Please elaborate on your payment issue so that we can offer the appropriate guidance.",
+      "We'd be happy to help with your payment query. Could you please give us more specifics?",
+      "For general payment queries, please provide some additional details about the issue you're facing.",
+      "Kindly share more information about your payment query so we can assist you accurately.",
+      "Please provide further details regarding your payment query so that we can offer a solution.",
+      "We require more context about your payment issue. Can you please elaborate on the problem?",
+      "To help with your payment query, please describe your issue in a bit more detail.",
+      "Could you please offer more specifics regarding your payment concern?",
+      "We’d love to assist. Please provide additional details about your general payment query."
+    ],
+    "Payer Change/Modification": [
+      "For payer changes, please provide your current payer information along with the new payer details.",
+      "To modify the payer, kindly share your existing payer info and the new payer's details.",
+      "Please provide both the current and new payer information so we can update your records.",
+      "For a payer change request, we need your current payer details and the information of the new payer.",
+      "Kindly send us your current payer details along with the new payer's information for modification.",
+      "To proceed with a payer change, please provide the necessary details for both the current and new payer.",
+      "Please furnish the current payer info and the new payer details so we can process your request.",
+      "We require both your current and new payer information to change the payer on your account.",
+      "For modifying payer details, kindly share the information for both the existing and new payer.",
+      "To update the payer, please provide your current payer's info and the new payer's details."
+    ],
+    "Payment Method Enquiry": [
+      "Could you please specify which payment method you're inquiring about?",
+      "Please let us know the payment method you're interested in for further details.",
+      "We'd be happy to help. Which payment method do you need more information on?",
+      "Kindly specify the payment method in question so we can provide you with accurate details.",
+      "To assist you better, please mention the payment method you're asking about.",
+      "Could you clarify which payment method you'd like to inquire about?",
+      "Please provide the payment method you're interested in so we can offer detailed information.",
+      "We need to know which payment method you're asking about. Can you please specify?",
+      "For your enquiry, please indicate the payment method in question.",
+      "Could you please tell us which payment method you are referring to?"
+    ],
+    "Membership/Account Inquiry": [
+      "For membership or account inquiries, please provide your account email so we can assist you.",
+      "Please share your account email for further assistance with your membership or account inquiry.",
+      "To help with your membership query, kindly provide your registered account email.",
+      "Could you please provide the email associated with your account for membership inquiries?",
+      "Please give us your account email so that we can address your membership or account query.",
+      "For account-related questions, kindly share your registered email with us.",
+      "We need your account email to assist you with your membership or account inquiry.",
+      "Please provide your account email for a more accurate response to your inquiry.",
+      "For membership/account issues, kindly provide your registered email address.",
+      "Could you please share your account email to help us resolve your inquiry?"
+    ],
+    "Hold Payment Request": [
+      "To place a hold on your payment, please share your Payment ID and the reason for the hold.",
+      "Please provide your Payment ID along with the reason for requesting a payment hold.",
+      "Kindly send us your Payment ID and why you need to hold the payment.",
+      "We need your Payment ID and the reason behind the hold request to proceed.",
+      "To process your hold request, please provide your Payment ID and the purpose for the hold.",
+      "Please share your Payment ID and details on why you'd like to place a hold on your payment.",
+      "Could you please provide your Payment ID along with the reason for the payment hold?",
+      "For a payment hold, we require your Payment ID and an explanation of the hold reason.",
+      "Please provide the Payment ID and the rationale behind placing a hold on the payment.",
+      "To place your payment on hold, kindly supply your Payment ID and the reason for this request."
+    ],
+    "Licenses/Billing Information": [
+      "For licenses or billing details, please specify which information you need.",
+      "Could you please let us know the exact licenses or billing information you're looking for?",
+      "Please provide more details on the licenses or billing information you require.",
+      "We’d be happy to assist. Which specific licenses or billing details are you inquiring about?",
+      "For detailed information on licenses or billing, please specify your query further.",
+      "Please clarify which part of the licenses or billing information you need.",
+      "Could you specify whether you need information on licensing or billing details?",
+      "Let us know what specific licenses or billing information you require.",
+      "We need more details to help with your licenses or billing query. Could you please elaborate?",
+      "Please indicate the exact licenses or billing details you are asking about."
+    ],
+    "Installment/Discount": [
+      "If you have questions about installments or discounts, please provide your order ID for reference.",
+      "Please share your order ID so we can look into installment or discount options.",
+      "Kindly provide your order ID to help us address your query regarding installments or discounts.",
+      "For inquiries on installments or discounts, please provide your order number.",
+      "Please provide your order ID so we can review available installment or discount options for you.",
+      "To assist with installment or discount queries, please share your order ID.",
+      "We need your order number to check on installment plans or discount offers.",
+      "Could you please provide your order ID for us to verify installment or discount details?",
+      "Please share your order ID to get more information about installments or discounts.",
+      "To look into installment or discount options, kindly provide your order ID."
+    ],
+    "Waiver/Other Issues": [
+      "Please explain your issue in detail so we can assist you better with any waiver or other concerns.",
+      "Kindly describe your issue in detail, and we’ll help you with waiver or other related matters.",
+      "To process your waiver or address other issues, please provide a detailed explanation of your concern.",
+      "Please provide more details regarding your issue so we can offer assistance on waiver requests or other matters.",
+      "We need a detailed explanation of your issue to help with any waiver or other concerns you may have.",
+      "For waiver requests or other issues, please describe your problem in detail.",
+      "Could you please provide a detailed explanation of your issue so we can assist with waiver or other concerns?",
+      "Please elaborate on your issue, and we’ll do our best to help with waiver or any other concerns.",
+      "To assist with your waiver request or other issues, please give us a detailed description of your problem.",
+      "We require more details about your issue to help with any waiver or other related queries."
+    ],
+    "Signed Document Request": [
+      "For a signed document request, please provide your order number and specify the document type.",
+      "Please share your order number along with the type of signed document you need.",
+      "To process your signed document request, we require your order number and the document type.",
+      "Kindly provide your order number and the type of document you’re requesting.",
+      "For signed document requests, please furnish your order number and specify the document type.",
+      "Please provide your order number along with details on the signed document you require.",
+      "To help with your signed document request, kindly share your order number and document type.",
+      "We need your order number and the specific type of signed document to process your request.",
+      "Could you please provide your order number and the document type for your signed document request?",
+      "For processing a signed document request, please provide both your order number and the type of document needed."
+    ],
+    "Payment Receipt Request": [
+      "Please provide your Payment ID to request a payment receipt.",
+      "Kindly share your Payment ID so we can generate a payment receipt for you.",
+      "To issue a payment receipt, please provide your Payment ID.",
+      "We need your Payment ID to process your payment receipt request.",
+      "For a payment receipt, please supply your Payment ID.",
+      "Please provide your Payment ID and we will send you a payment receipt.",
+      "Kindly provide the Payment ID for us to generate your payment receipt.",
+      "To get a copy of your payment receipt, please share your Payment ID.",
+      "Please furnish your Payment ID so that we can issue a payment receipt.",
+      "For a payment receipt request, please provide your Payment ID."
+    ]
+  },
+  "General Queries": {
+    "Recommended browsers": [
+      "For the best experience on SciPris, we recommend using Google Chrome version 61-62.",
+      "We suggest using Mozilla Firefox version 54-55 for optimal performance.",
+      "For browsing SciPris, Google Chrome (v61-62) is highly recommended.",
+      "Our system works best with Mozilla Firefox (v54-55) or Google Chrome (v61-62).",
+      "For best results, use Google Chrome (v61-62) when accessing SciPris.",
+      "We recommend Mozilla Firefox (v54-55) for a smooth SciPris experience.",
+      "For optimal use, try Google Chrome version 61-62.",
+      "We suggest using Mozilla Firefox version 54-55 for SciPris.",
+      "For the best performance, use Google Chrome (v61-62).",
+      "We recommend using Mozilla Firefox (v54-55) for the best SciPris experience."
+    ],
+    "Available payment options": [
+      "You can pay via debit/credit card (Visa, Master, AmEx, Discover) or by invoice (check, credit card, wire transfer).",
+      "Our payment options include debit/credit cards and invoice payments (via check, credit card, or wire transfer).",
+      "You have the option to pay using a debit/credit card or through an invoice.",
+      "Payments can be made by debit/credit card or by invoice (check, credit card, or wire transfer).",
+      "You can use either debit/credit card payments or invoice methods for payment.",
+      "Our system accepts both debit/credit card payments and invoice payments.",
+      "Payments are accepted via debit/credit card as well as invoice (check, credit card, wire transfer).",
+      "You may pay by debit/credit card or opt for invoice payment.",
+      "Payment options include both card payments (Visa, Master, etc.) and invoice payments.",
+      "You can choose between paying via debit/credit card or using an invoice."
+    ],
+    "Split Article Publication fee": [
+      "Use the 'Add/Change Payer' option on the 'Article Payment' page to assign a portion of the fee to another payer.",
+      "You can split the publication fee by using the 'Add/Change Payer' feature.",
+      "To split the fee, please select the 'Add/Change Payer' option and enter the details of the additional payer.",
+      "You can assign part of the publication fee to another payer using the 'Add/Change Payer' option.",
+      "Split the fee by clicking on 'Add/Change Payer' and entering the required details.",
+      "To split the publication fee, please use the 'Add/Change Payer' feature.",
+      "You can divide the fee by selecting the 'Add/Change Payer' option and entering the necessary details.",
+      "Use 'Add/Change Payer' to allocate a portion of the fee to a co-payer.",
+      "You may split the fee via the 'Add/Change Payer' option on the payment page.",
+      "To split the fee, choose 'Add/Change Payer' and input the additional payer's details."
+    ],
+    "Change payer": [
+      "Yes, you can assign the entire publication fee to another payer by selecting the 'Add/Change Payer' option.",
+      "To change the payer, use the 'Add/Change Payer' feature to update the payer details.",
+      "You may change the payer by clicking on 'Add/Change Payer' and providing the new payer's information.",
+      "Yes, you can update the payer details using the 'Add/Change Payer' option.",
+      "To modify the payer, simply select 'Add/Change Payer' and enter the new payer's information.",
+      "You can change the payer through the 'Add/Change Payer' feature in the payment section.",
+      "Yes, by using the 'Add/Change Payer' option, you can assign the fee to a different payer.",
+      "To change the payer, click on 'Add/Change Payer' and update the details accordingly.",
+      "You can modify the payer details using the 'Add/Change Payer' option.",
+      "Yes, use 'Add/Change Payer' to change the payer to someone else."
+    ],
+    "Need a user account for payments?": [
+      "You can pay as a guest if you're the only payer; however, login is required for using the 'Add/Change Payer' option.",
+      "Guest payment is available if you're the sole payer, but account login is needed for payer modifications.",
+      "If you're the only payer, you can use a guest login. For changing payer details, an account is necessary.",
+      "You can proceed as a guest if paying alone, but you'll need to log in to use 'Add/Change Payer'.",
+      "For single-payer transactions, guest login works, but modifying payer details requires an account.",
+      "You may pay as a guest if you're the only payer, but account login is mandatory for payer changes.",
+      "Guest login is acceptable for individual payments; however, to change payer details, an account is needed.",
+      "You can pay without an account if you're the sole payer, but you must log in for any payer modifications.",
+      "For single-payer transactions, guest login is allowed. For multiple payers, an account is required.",
+      "If you're paying alone, guest login works fine, but an account is needed to use the 'Add/Change Payer' option."
+    ],
+    "Login issues": [
+      "Please activate your account by clicking the link in the verification email sent to your registered email ID.",
+      "If you're having login issues, ensure that you've activated your account via the verification email.",
+      "Check your email for a verification link and activate your account to resolve login issues.",
+      "Make sure to click the verification link in your email to activate your account and solve login problems.",
+      "To resolve login issues, please activate your account using the link sent to your registered email.",
+      "If login fails, check your email for a verification link and activate your account.",
+      "Login issues can often be fixed by activating your account through the verification email.",
+      "Ensure that you've activated your account by clicking the verification link in your email to resolve login issues.",
+      "Activate your account using the link in your verification email to overcome login problems.",
+      "If you're experiencing login difficulties, please verify your account via the email link provided."
+    ],
+    "Institution making payment": [
+      "For institutional payments, you can choose the 'Pay by Invoice' option before proceeding to payment.",
+      "If your institution is handling the payment, please use the 'Pay by Invoice' option or the 'Add/Change Payer' feature.",
+      "Institutional payments can be made via invoice. Alternatively, use 'Add/Change Payer' to send the payment link.",
+      "Please select 'Pay by Invoice' if your institution will be making the payment on your behalf.",
+      "For payments made by your institution, use the 'Pay by Invoice' option or request a payer change.",
+      "If your institution is covering the cost, opt for 'Pay by Invoice' or use 'Add/Change Payer' to update payer details.",
+      "Institutional payments should be done via invoice. Alternatively, you may use 'Add/Change Payer' to update details.",
+      "Please choose 'Pay by Invoice' if your institution will process the payment, or use 'Add/Change Payer' for modifications.",
+      "For institutional payment processing, select the 'Pay by Invoice' option.",
+      "If your institution is making the payment, please opt for 'Pay by Invoice' or use 'Add/Change Payer' as needed."
+    ],
+    "Payment deducted but no confirmation": [
+      "If your payment was deducted but you haven't received a confirmation, please email SciPris helpdesk with your Invoice ID or Payment ID.",
+      "Please contact SciPris helpdesk with your Invoice or Payment ID if the payment has been deducted without confirmation.",
+      "For payment deductions without confirmation, kindly send your Invoice ID or Payment ID to SciPris helpdesk.",
+      "If the payment was deducted and no confirmation received, please email SciPris helpdesk including your Invoice/Payment ID.",
+      "Contact SciPris helpdesk with your Invoice or Payment ID if you haven't received payment confirmation.",
+      "If payment was deducted but not confirmed, please reach out to SciPris helpdesk with your Invoice ID or Payment ID.",
+      "For unconfirmed payments, kindly provide your Invoice or Payment ID to SciPris helpdesk for resolution.",
+      "Please email SciPris helpdesk with your Invoice/Payment ID if your payment was deducted but no confirmation was sent.",
+      "If you notice a deduction without confirmation, please contact SciPris helpdesk with your payment details.",
+      "For issues with payment confirmation, please send your Invoice or Payment ID to SciPris helpdesk."
+    ],
+    "No answer found": [
+      "If you can't find an answer, please contact SciPris Helpdesk via email or phone.",
+      "We couldn't find your answer. Please email SciPris Helpdesk or call us at the provided number.",
+      "For further assistance, contact SciPris Helpdesk at scipris-help@aptaracorp.com or call 1.800.767.1518 x 2331.",
+      "Please reach out to SciPris Helpdesk if you still have questions.",
+      "We recommend contacting SciPris Helpdesk for further inquiries.",
+      "If your question remains unanswered, please email or call SciPris Helpdesk.",
+      "For more information, please contact SciPris Helpdesk directly.",
+      "If you're still unsure, please get in touch with SciPris Helpdesk via email or phone.",
+      "Please contact our helpdesk at scipris-help@aptaracorp.com or call 1.800.767.1518 x 2331 for further assistance.",
+      "For any unresolved queries, please reach out to SciPris Helpdesk through email or phone."
+    ]
+  },
+  "License & Access Issues": {
+    "License Link Not Received": [
+      "It seems you haven't received the license link. Please check your spam folder or request a new link.",
+      "If you did not receive the license link, kindly let us know so we can resend it.",
+      "We haven't seen a confirmation that you've received the license link. Would you like us to send it again?",
+      "It appears the license link might not have been delivered. Please confirm, and we can forward it again.",
+      "If you're missing your license link, please notify us and we will arrange for it to be resent.",
+      "Not receiving the license link? Please check your spam folder and let us know if you need a new one.",
+      "We can resend the license link if you haven't received it. Please confirm your email address.",
+      "It looks like the license link is missing. Kindly request a new one if needed.",
+      "If your license link hasn't arrived, please reach out and we'll promptly resend it.",
+      "Please let us know if you did not get the license link so that we can issue a new one."
+    ],
+    "Email Update Request": [
+      "If you need to update your email address, please provide the new email so we can update your account.",
+      "To update your email, please share your new email address with us.",
+      "We can help update your email address. Please provide the new email for our records.",
+      "Kindly provide your new email address if you wish to update it in our system.",
+      "Please share your updated email address so we can make the necessary changes.",
+      "To update your email, please let us know the new address you’d like to use.",
+      "We’re happy to update your email. Please provide the new email address.",
+      "If you’ve changed your email, kindly inform us of the new address for an update.",
+      "For email update requests, please supply your new email address.",
+      "Please provide your new email address so that we can update your account information."
+    ],
+    "Password Reset Issues": [
+      "If you're experiencing password reset issues, please ensure you've clicked the verification link in your email.",
+      "For password reset problems, try checking your spam folder for the reset link.",
+      "If you cannot reset your password, please contact SciPris helpdesk for further assistance.",
+      "Password reset issues? Please confirm that you've used the verification link sent to your email.",
+      "If you're unable to reset your password, consider checking your spam folder for the reset email.",
+      "For password reset troubles, please ensure your account is activated via the verification email.",
+      "Having trouble resetting your password? Verify if the reset email is in your spam folder.",
+      "If password reset fails, please reach out to SciPris helpdesk for help.",
+      "Make sure to click the link in your reset email to update your password.",
+      "For assistance with password resets, please contact our support team."
+    ]
+  },
+  "Waiver & Deadline Issues": {
+    "Partial Waiver Request": [
+      "For a partial waiver request, please provide the details of your fee and any supporting documentation.",
+      "To request a partial waiver, kindly share the relevant details of your publication fee.",
+      "Please provide information regarding your fee and the waiver amount you're requesting.",
+      "For partial waiver inquiries, include details about your fee and your waiver request.",
+      "To initiate a partial waiver, kindly provide the amount and supporting details.",
+      "Please share the specifics of your fee and the waiver percentage you are requesting.",
+      "For a partial waiver, we need your fee details and the waiver request information.",
+      "Kindly provide the necessary details for your partial waiver request.",
+      "Please detail your fee and the waiver amount you wish to request.",
+      "To process a partial waiver request, please supply the fee details and the waiver percentage."
+    ],
+    "Deadline Extension Request": [
+      "If you need a deadline extension, please provide the reason and the new deadline you are requesting.",
+      "For deadline extension requests, kindly share the details of your current deadline and the extension needed.",
+      "Please let us know why you require a deadline extension and the new date you're aiming for.",
+      "To request an extension, provide your current deadline and the reason for the delay.",
+      "Kindly share your request for a deadline extension, including the reason and new deadline.",
+      "Please provide details on why you need an extension and the date you would like to extend to.",
+      "For a deadline extension, please provide the reason and your preferred new deadline.",
+      "We can help with deadline extensions. Please share your current deadline and your new proposed date.",
+      "To assist with your extension request, please provide the reason and the new deadline.",
+      "Please let us know your reason for needing an extension and the new deadline date."
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+1. Which browsers are recommended for using SciPris?
+For best results, we suggest to use the following browsers:
+Google Chrome: v. 61-62
+Mozilla Firefox: v. 54-55
+Internet Explorer: v. 10.0-11.0
+Safari: v. 9.0
+
+2. What are the payment options available on SciPris?
+A) You can pay via debit card or credit card (Visa, Master, American Express,Discover)
+B) You can pay via invoice (if you would like to be sent an invoice to pay later). The invoice may be paid by check, credit card, or wire transfer.
+
+3. What if I want to split my Article Publication fee with another Payer/Co-Author?
+Simply use the “Add/Change Payer” option on the “Article Payment” page, enter the amount that you want to assign to the new payer along with their name and E-mail IDs. The new payer will get a payment link which they can use to pay.
+
+4. Can I change payer and assign complete Article Publication fee to another Payer/Co-Author?
+Yes. Enter the complete amount by clicking on “Add/Change Payer”.
+
+5. Do I need to create a user account for paying publication fees?
+You can pay your Article Publication fee using Guest login if you are the only payer. However, login is mandatory for using “Add/Change Payer” option.
+
+6. What should I do if I am unable to login after registration?
+Please activate your account by clicking the link in the verification mail. The registration system will send the verification email to your registered email ID for account activation.
+
+7. My institution will be making a payment on my behalf. How should I proceed?
+SciPris gives you an option of paying by invoice. After the payment details are visible to you (before being directed to the payment portal), please proceed by clicking on “Pay by invoice”. An invoice will be generated with all the relevant details. You can print or download it and can send to your university for clearance.
+Alternatively (if your institution allows), you can use the “Add/Change Payer” option, enter the concerned department/person’s E-mail ID and the complete amount corresponding to him. This will send an automated link to the concerned ID which can then be used to make the payment.
+
+8. My account has been deducted with the payment but I haven’t got the confirmation from the system yet. What should I do?
+Please email SciPris helpdesk at scipris-help@aptaracorp.com referring your Invoice ID or Payment ID details. We will respond back within 48 hrs.
+
+9. What should I do if I cannot find an answer here?
+Please contact us on our 24x5, Monday to Friday Helpdesk via E-mail: scipris-help@aptaracorp.com or call us on 1.800.767.1518 x 2331
+
+
