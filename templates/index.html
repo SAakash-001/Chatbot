@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SciPris Chatbot</title>
-    <link rel="stylesheet" href="static\style.css">
+  <meta charset="UTF-8" />
+  <title>SciPris Chatbot</title>
+  <!-- Link to your updated CSS file -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:,">
+
 </head>
 <body>
-
+  <!-- Container wraps sidebar + chat area -->
+  <div class="container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <h2>Chat Options</h2>
-        <ul>
-            <li onclick="sendMessage('Payment Failure')">Payment Failure</li>
-            <li onclick="sendMessage('Refund Issues')">Refund Issues</li>
-            <li onclick="sendMessage('Invoice Requests')">Invoice Requests</li>
-            <li onclick="sendMessage('Other Payment Queries')">Other Queries</li>
-        </ul>
+      <h2>Chat Options</h2>
+      <ul>
+        <li onclick="sendMessage('Payment Failure')">Payment Failure</li>
+        <li onclick="sendMessage('Refund Issues')">Refund Issues</li>
+        <li onclick="sendMessage('Invoice Requests')">Invoice Requests</li>
+        <li onclick="sendMessage('Other Payment Queries')">Other Payment Queries</li>
+      </ul>
     </div>
 
-    <!-- Main Chat Section -->
+    <!-- Chat Section -->
     <div class="chat-container">
-        <div class="chat-header">SciPris Chatbot</div>
-        <div id="chat-log"></div>
-        
-        <!-- Chat Input -->
-        <div class="chat-input-container">
-            <input type="text" id="chatInput" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+      <div class="chat-header">SciPris Chatbot</div>
+      <div id="chat-log"></div>
+      <div class="chat-input-container">
+        <input type="text" id="chatInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
     </div>
+  </div>
 
-    <script src="static\scripts.js"></script>
+  <!-- Link to your JS file -->
+  <script src="/static/scripts.js"></script>
 </body>
 </html>
