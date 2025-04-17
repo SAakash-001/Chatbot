@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Chat</title>
+    <link rel="stylesheet" href="/static/support_chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar - User List -->
+        <div class="sidebar user-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-headset"></i>
+                    <span>Your Inbox</span>
+                </div>
+                <div class="inbox-status">Open(05)</div>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search" class="search-input">
+            </div>
+            <div class="user-list" id="userList">
+                <!-- User list will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="user-info">
+                        <img src="" alt="User" id="currentUserAvatar" class="avatar">
+                        <div class="user-details">
+                            <div class="user-name"><span id="currentUserName"></span> <i class="fas fa-chevron-down"></i></div>
+                            <div class="user-status">via Web</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="chat-session-info">
+                <span id="sessionInfo">Session 03: May 1, 2024</span>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Chat messages will be populated by JavaScript -->
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" placeholder="Write a message ...use # for canned message" class="chat-input" id="messageInput">
+                <div class="chat-send">
+                    <button class="send-btn" id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - User Information -->
+        <div class="sidebar info-sidebar">
+            <div class="tabs">
+                <div class="tab active">Overview</div>
+            </div>
+            
+            
+            <div class="user-info-section">
+                <div class="section-header">
+                    <div class="section-title">Visitor Status</div>
+                    <div class="status-indicator online"><span class="dot"></span> Online</div>
+                </div>
+                
+                <div class="section-content">
+                    <div class="info-row">
+                        <div class="info-label">Assignee</div>
+                        <div class="info-value" id="assigneeValue">
+                            <img src="" alt="" class="small-avatar" id="assigneeAvatar">
+                            <span id="assigneeName">Rafi Ahmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="user-info-section">
+                <div class="section-header">
+                    <div class="section-title">User Information</div>
+                    <div class="section-toggle"><i class="fas fa-minus"></i></div>
+                </div>
+                
+                <div class="section-content" id="userDetails">
+                    <!-- User details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/support_chat.js"></script>
+</body>
+</html> 

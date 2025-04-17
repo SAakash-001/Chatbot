@@ -226,6 +226,9 @@ def extract_doi_and_title(text: str) -> Tuple[Optional[str], Optional[str]]:
 # Context management for users to provide personalized responses
 user_contexts: Dict[str, Dict[str, Any]] = {}
 
+# Add satisfaction options for user feedback
+SATISFACTION_OPTIONS = ["Yes, I'm satisfied", "No, I need human support"]
+
 def initialize_user_context(user_id: str) -> None:
     """Initialize or reset a user's context with default values."""
     user_contexts[user_id] = {
@@ -601,6 +604,13 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
         
     greetings = ["hi", "hello", "hey", "good morning", "good evening"]
 
+    # Check if user selected a satisfaction option
+    if user_input in SATISFACTION_OPTIONS:
+        if user_input == "Yes, I'm satisfied":
+            return "Great! I'm glad I could help. Is there anything else you'd like to know?", None
+        else:  # User needs human support
+            return "I understand you need additional help. I'll connect you with our support team who will contact you soon. Thank you for your patience.", None
+
     # Try semantic matching for common questions
     category, sub_category = match_query_to_response(user_input, responses_mapping)
     if category and sub_category:
@@ -610,9 +620,10 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
                 responses = responses_mapping[category][sub_category]
                 # Handle both formats (list of responses or single string)
                 if isinstance(responses, list):
-                    return random.choice(responses), None
+                    response = random.choice(responses)
+                    return response, SATISFACTION_OPTIONS
                 else:
-                    return responses, None
+                    return responses, SATISFACTION_OPTIONS
         except Exception as e:
             print(f"Error retrieving response for {category}/{sub_category}: {e}")
             # Continue with other response methods if retrieval fails
@@ -626,7 +637,8 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
         doi, title = extract_doi_and_title(user_input)
         if doi and title:
             # If both DOI and title were found, treat as invoice query
-            return get_invoice_details(doi, title), None
+            response = get_invoice_details(doi, title)
+            return response, SATISFACTION_OPTIONS
         elif doi:
             # If only DOI was found, ask for title
             return (
@@ -643,7 +655,7 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
     frustration_response = get_frustration_response(user_id)
     if frustration_response:
         update_user_context(user_id, "frustration_level", 0)  # Reset frustration after addressing it
-        return frustration_response, None
+        return frustration_response, SATISFACTION_OPTIONS
     
     # Add personalization if we know the user's name
     user_name = get_user_context_value(user_id, "user_name")
@@ -671,40 +683,45 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
         # Direct equality test first (for inputs like just "visa" or "mastercard")
         if user_input_lower == "visa" or user_input_lower == "v":
             print(f"DEBUG: Visa card detected via equality: '{user_input_lower}'")
-            return (
+            response = (
                 "Great! Your Visa card is supported. Let's try the payment again. "
                 "If the issue persists, I recommend contacting your bank or trying a different card."
-            ), None  # Reset context
+            )
+            return response, SATISFACTION_OPTIONS  # Add satisfaction check
             
         if user_input_lower in ["mastercard", "master card", "master", "mc", "m"]:
             print(f"DEBUG: MasterCard detected via equality: '{user_input_lower}'")
-            return (
+            response = (
                 "Great! Your MasterCard is supported. Let's try the payment again. "
                 "If the issue persists, I recommend contacting your bank or trying a different card."
-            ), None  # Reset context
+            )
+            return response, SATISFACTION_OPTIONS  # Add satisfaction check
             
         # Then check for card names within text
         if "visa" in user_input_lower:
             print(f"DEBUG: Visa card detected in: '{user_input_lower}'")
-            return (
+            response = (
                 "Great! Your Visa card is supported. Let's try the payment again. "
                 "If the issue persists, I recommend contacting your bank or trying a different card."
-            ), None  # Reset context
+            )
+            return response, SATISFACTION_OPTIONS  # Add satisfaction check
             
         if any(card in user_input_lower for card in ["master", "mc", "mastercard"]):
             print(f"DEBUG: MasterCard detected in: '{user_input_lower}'")
-            return (
+            response = (
                 "Great! Your MasterCard is supported. Let's try the payment again. "
                 "If the issue persists, I recommend contacting your bank or trying a different card."
-            ), None  # Reset context
+            )
+            return response, SATISFACTION_OPTIONS  # Add satisfaction check
             
         # Fallback for unsupported cards
         print(f"DEBUG: Unsupported card type in: '{user_input_lower}'")
-        return (
+        response = (
             "I understand you're having issues with your card. "
             "SciPris currently only accepts Visa and MasterCard for card payments. "
             "Would you like to try using Bank Transfer instead? It's a reliable alternative."
-        ), None  # Reset context
+        )
+        return response, SATISFACTION_OPTIONS  # Add satisfaction check
 
     # Trigger card payment failure context
     if user_input.lower() == "card payment failure":
@@ -727,13 +744,14 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
             # After 2 failed attempts, provide more examples or offer alternative
             if doi_attempts >= 2:
                 update_user_context(user_id, "doi_attempts", 0)  # Reset counter
-                return (
+                response = (
                     "I notice we're having difficulty finding your DOI. "
                     "You can also try one of these options:\n\n"
                     "1. Send us your article title only, and we'll try to locate it\n"
                     "2. Check your email for communication from SciPris containing the DOI\n"
                     "3. Contact support@scipris.com with your article details"
-                ), None
+                )
+                return response, SATISFACTION_OPTIONS
                 
             return (
                 "I'm having trouble finding the DOI and article title in your message. "
@@ -752,7 +770,8 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
             
         # Reset attempts counter on success
         update_user_context(user_id, "doi_attempts", 0)
-        return get_invoice_details(doi, title), None
+        response = get_invoice_details(doi, title)
+        return response, SATISFACTION_OPTIONS  # Add satisfaction check
 
     if user_input.lower() == "invoice not received":
         return (
@@ -785,9 +804,10 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
         for sub_option, response in sub_options.items():
             if user_input.lower() == sub_option.lower():
                 if isinstance(response, list):
-                    return random.choice(response), None
+                    final_response = random.choice(response)
+                    return final_response, SATISFACTION_OPTIONS  # Add satisfaction check
                 else:
-                    return response, None
+                    return response, SATISFACTION_OPTIONS  # Add satisfaction check
 
     # Log unmatched queries for improving the chatbot
     log_unmatched_query(user_id, user_input)
@@ -816,15 +836,17 @@ def scipris_chatbot(user_input: str, user_context=None, user_id: str = "default"
     if best_score > 0 and best_category and best_sub_category:
         responses = responses_mapping[best_category][best_sub_category]
         if isinstance(responses, list):
-            return (
+            final_response = (
                 f"I think you're asking about {best_sub_category}. "
                 f"{random.choice(responses)}"
-            ), None
+            )
+            return final_response, SATISFACTION_OPTIONS  # Add satisfaction check
         else:
-            return (
+            final_response = (
                 f"I think you're asking about {best_sub_category}. "
                 f"{responses}"
-            ), None
+            )
+            return final_response, SATISFACTION_OPTIONS  # Add satisfaction check
     
     # More natural default response with suggestions
     return (

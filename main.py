@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Response, BackgroundTasks
+from fastapi import FastAPI, Request, Response, BackgroundTasks, WebSocket, WebSocketDisconnect, Depends
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -11,6 +11,7 @@ from utils import scipris_chatbot, initialize_user_context, user_contexts
 from datetime import datetime, timedelta
 import json
 import time
+from models import ConnectionManager, ChatMessage
 
 app = FastAPI()
 
@@ -29,6 +30,9 @@ templates = Jinja2Templates(directory="templates")
 
 # Dictionary to store user context by session ID
 user_sessions = {}
+
+# WebSocket connection manager
+manager = ConnectionManager()
 
 # Session timeout settings (in seconds)
 SESSION_TIMEOUT = 30 * 60  # 30 minutes
@@ -71,6 +75,11 @@ def cleanup_expired_sessions():
 async def read_index(request: Request) -> HTMLResponse:
     """Serve the chatbot's HTML interface."""
     return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/support", response_class=HTMLResponse)
+async def support_chat(request: Request) -> HTMLResponse:
+    """Serve the support chat HTML interface."""
+    return templates.TemplateResponse("support_chat.html", {"request": request})
 
 @app.post("/ask")
 async def ask(request: Request, background_tasks: BackgroundTasks) -> JSONResponse:
@@ -139,11 +148,53 @@ async def ask(request: Request, background_tasks: BackgroundTasks) -> JSONRespon
         response = {
             "response": response_text,
             "options": new_context,
-            "session_id": session_id
+            "session_id": session_id,
+            "is_satisfaction_check": False
         }
 
+        # Check if the options are the satisfaction check options
+        from utils import SATISFACTION_OPTIONS
+        if isinstance(new_context, list) and set(new_context) == set(SATISFACTION_OPTIONS):
+            response["is_satisfaction_check"] = True
+            
         # Optional: add typing simulation details
         response["char_count"] = len(response_text)  # For dynamic typing speed
+        
+        # Send message to support agents via WebSocket
+        try:
+            user_message_for_support = ChatMessage(
+                id=str(uuid.uuid4()),
+                sender_id=session_id,
+                sender_name=f"User ({session_id[:8]})",
+                content=user_message,
+                timestamp=datetime.now().strftime("%H:%M %p"),
+                type="user",
+                avatar="https://i.pravatar.cc/150?img=70"
+            )
+            
+            bot_response_for_support = ChatMessage(
+                id=str(uuid.uuid4()),
+                sender_id="system",
+                sender_name="Chatbot",
+                content=response_text,
+                timestamp=datetime.now().strftime("%H:%M %p"),
+                type="system",
+                avatar="https://i.pravatar.cc/150?img=7"
+            )
+            
+            # Store messages
+            manager.store_message(session_id, user_message_for_support)
+            manager.store_message(session_id, bot_response_for_support)
+            
+            # Broadcast to support
+            await manager.broadcast_to_support({
+                "type": "new_chat",
+                "session_id": session_id,
+                "user_message": user_message_for_support.dict(),
+                "bot_response": bot_response_for_support.dict()
+            })
+        except Exception as e:
+            print(f"Error sending message to support: {e}")
 
         return JSONResponse(response)
         
@@ -160,6 +211,139 @@ async def get_session_history(session_id: str) -> JSONResponse:
     history = user_contexts[session_id].get("history", [])
     return JSONResponse({"history": history})
 
+@app.websocket("/ws/user/{user_id}")
+async def websocket_user_endpoint(websocket: WebSocket, user_id: str):
+    """WebSocket endpoint for users to connect and receive support messages"""
+    try:
+        # Connect the user
+        await manager.connect_user(user_id, websocket)
+        
+        # Send message history
+        messages = manager.get_message_history(user_id)
+        
+        if messages:
+            await websocket.send_json({
+                "type": "message_history",
+                "messages": [msg.dict() for msg in messages]
+            })
+        
+        # Keep connection alive and handle user messages
+        while True:
+            data = await websocket.receive_text()
+            message_data = json.loads(data)
+            
+            if message_data.get("type") == "user_message":
+                # Store the user message
+                user_message = ChatMessage(
+                    id=str(uuid.uuid4()),
+                    sender_id=user_id,
+                    sender_name=message_data.get("sender_name", f"User ({user_id[:8]})"),
+                    content=message_data.get("content", ""),
+                    timestamp=datetime.now().strftime("%H:%M %p"),
+                    type="user",
+                    avatar="https://i.pravatar.cc/150?img=70"
+                )
+                
+                manager.store_message(user_id, user_message)
+                
+                # Broadcast to support agents
+                await manager.broadcast_to_support({
+                    "type": "new_message",
+                    "session_id": user_id,
+                    "message": user_message.dict()
+                })
+                
+                # Confirm message was received
+                await websocket.send_json({
+                    "type": "message_received",
+                    "message_id": user_message.id
+                })
+    
+    except WebSocketDisconnect:
+        # Handle user disconnection
+        await manager.disconnect(user_id)
+    
+    except Exception as e:
+        print(f"Error in user WebSocket connection: {e}")
+        try:
+            await manager.disconnect(user_id)
+        except Exception:
+            pass  # Ignore errors in disconnection
+
+@app.websocket("/ws/support/{support_id}")
+async def websocket_support_endpoint(websocket: WebSocket, support_id: str):
+    """WebSocket endpoint for support agents"""
+    try:
+        await websocket.accept()
+        
+        # Connect support agent
+        await manager.connect_support(support_id, websocket)
+        
+        # Send list of active chat sessions
+        active_sessions = [{
+            "session_id": session_id,
+            "created_at": session_data.get("created_at", ""),
+            "last_activity": session_data.get("last_activity", 0),
+            "messages": [msg.dict() for msg in manager.get_message_history(session_id)]
+        } for session_id, session_data in user_sessions.items()]
+        
+        await websocket.send_json({
+            "type": "active_sessions",
+            "sessions": active_sessions
+        })
+        
+        # Handle messages from support agent
+        while True:
+            data = await websocket.receive_text()
+            message_data = json.loads(data)
+            
+            # Handle different message types
+            if message_data.get("type") == "support_message":
+                session_id = message_data.get("session_id")
+                
+                if session_id and session_id in user_sessions:
+                    message = ChatMessage(
+                        id=str(uuid.uuid4()),
+                        sender_id=support_id,
+                        sender_name="Support Agent",
+                        content=message_data.get("content", ""),
+                        timestamp=datetime.now().strftime("%H:%M %p"),
+                        type="support",
+                        avatar="https://i.pravatar.cc/150?img=7"
+                    )
+                    
+                    # Store the message
+                    manager.store_message(session_id, message)
+                    
+                    # Confirm message was stored to support agent
+                    await websocket.send_json({
+                        "type": "message_stored",
+                        "message_id": message.id
+                    })
+                    
+                    # Send message to user via WebSocket if connected
+                    was_sent = await manager.send_support_message_to_user(session_id, message)
+                    
+                    if was_sent:
+                        await websocket.send_json({
+                            "type": "message_delivered",
+                            "message_id": message.id
+                        })
+    
+    except WebSocketDisconnect:
+        # Handle support agent disconnection
+        try:
+            await manager.disconnect(support_id)
+        except Exception as e:
+            print(f"Error disconnecting support agent: {e}")
+    
+    except Exception as e:
+        print(f"Error in support WebSocket connection: {e}")
+        try:
+            # Try to disconnect properly
+            await manager.disconnect(support_id)
+        except Exception:
+            pass  # Ignore error if disconnect fails
 
 @app.get("/healthcheck")
 async def healthcheck() -> JSONResponse:
@@ -179,6 +363,7 @@ async def healthcheck() -> JSONResponse:
         "status": "ok",
         "database": db_status,
         "active_sessions": len(user_sessions),
+        "active_websockets": len(manager.active_connections),
         "uptime": time.time() - last_cleanup_time
     })
 

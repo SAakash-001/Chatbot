@@ -97,6 +97,20 @@ body {
   margin-right: 10px;
 }
 
+/* Support mode styling for chat header */
+.chat-header.support-mode {
+  background: #4a154b;
+  color: white;
+}
+
+.chat-header.support-mode::before {
+  background: #36c5f0;
+}
+
+.chat-header.support-mode i {
+  margin-right: 8px;
+}
+
 /* Chat Log */
 #chat-log {
   flex: 1;
@@ -171,6 +185,26 @@ body {
   border-bottom-left-radius: 0;
   border: 1px solid #e1e5e9;
   align-self: flex-start;
+}
+
+/* Support agent message styling */
+.support-message {
+  background: #4a154b;
+  color: white;
+  margin-right: auto;
+  border-bottom-left-radius: 0;
+  border: 1px solid #3b103c;
+  align-self: flex-start;
+}
+
+.support-message::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #36c5f0;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
 /* Typing indicator animation */
@@ -318,3 +352,50 @@ body {
     max-width: 90%;
   }
 }
+
+/* Satisfaction options container */
+.satisfaction-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    max-width: 350px;
+}
+
+/* Base styles for satisfaction buttons */
+.satisfaction-btn {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* "Yes, I'm satisfied" button */
+.satisfied-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #43A047;
+}
+
+.satisfied-btn:hover {
+    background-color: #43A047;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* "No, I need human support" button */
+.support-btn {
+    background-color: #FF9800;
+    color: white;
+    border: 1px solid #F57C00;
+}
+
+.support-btn:hover {
+    background-color: #F57C00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
